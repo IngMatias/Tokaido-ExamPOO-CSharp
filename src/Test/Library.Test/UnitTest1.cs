@@ -9,13 +9,11 @@ namespace Library.Test
         [SetUp]
         public void Setup()
         {
-            class1 = new Class1();
         }
 
         [Test]
         public void Test1()
         {
-            Assert.AreEqual("Hi", class1.Hi());
         }
     }
 }
