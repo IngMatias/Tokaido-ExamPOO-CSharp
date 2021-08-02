@@ -33,7 +33,7 @@ namespace Library
         }
         public MountainLandscape(int size)
         {
-            this._valueDifference = 2;
+            this._valueDifference = 1;
 
             this._size = size;
             this._travelers = new List<AbstractTraveler> ();
@@ -46,7 +46,7 @@ namespace Library
         {
             int visits = traveler.Visits(this);
             int value = 1;
-            for (int i = 1; i<visits ;i++)
+            for (int i = 1; i<=visits ;i++)
             {
                 value += this._valueDifference;
             }
@@ -58,6 +58,10 @@ namespace Library
         }
         public bool Add(AbstractTraveler traveler)
         {
+            if (this._travelers.IndexOf(traveler) != -1)
+            {
+                return false;
+            }
             if (this._travelers.Count + 1 <= this._size)
             {
                 this._travelers.Add(traveler);

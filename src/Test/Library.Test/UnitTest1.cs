@@ -1,11 +1,9 @@
-using NUnit.Framework;
-using Library;
+/*using NUnit.Framework;
 
 namespace Library.Test
 {
     public class Tests
     {
-        private Class1 class1;
         [SetUp]
         public void Setup()
         {
@@ -16,4 +14,4 @@ namespace Library.Test
         {
         }
     }
-}
+}*/

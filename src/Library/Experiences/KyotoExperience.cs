@@ -34,6 +34,10 @@ namespace Library
         }
         public bool Add(AbstractTraveler traveler)
         {
+            if (this._travelers.IndexOf(traveler) != -1)
+            {
+                return false;
+            }
             this._travelers.Add(traveler);
             return true;
         }
