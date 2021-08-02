@@ -41,6 +41,10 @@ namespace Library
         }
         public bool Add(AbstractTraveler traveler)
         {
+            if (this._travelers.IndexOf(traveler) != -1)
+            {
+                return false;
+            }
             if (this._travelers.Count + 1 <= this._size)
             {
                 this._travelers.Add(traveler);

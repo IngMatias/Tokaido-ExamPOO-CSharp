@@ -35,7 +35,7 @@ namespace Library
             int count = 0;
             foreach (IExperience visited in this._visited)
             {
-                if (newVisit.GetType().Equals(visited))
+                if (newVisit.GetType().Equals(visited.GetType()))
                 {
                     count ++;
                 }
