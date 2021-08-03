@@ -54,7 +54,7 @@ namespace Library
         }
         private IAcumulable Benefict(AbstractTraveler traveler)
         {
-            return new Coins(this.NextValueBenefict(traveler));
+            return new Points(this.NextValueBenefict(traveler));
         }
         public bool Add(AbstractTraveler traveler)
         {
