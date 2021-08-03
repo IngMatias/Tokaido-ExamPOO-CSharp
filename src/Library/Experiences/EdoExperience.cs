@@ -38,6 +38,7 @@ namespace Library
             {
                 return false;
             }
+            traveler.Add(this, new Coins(0));
             this._travelers.Add(traveler);
             return true;
         }
