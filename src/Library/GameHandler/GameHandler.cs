@@ -5,7 +5,7 @@
 
 // LSP: Esta clase es subtipo de IGameHandler por lo tanto puede sustituirlo. 
 
-// DIP: Esta clase de bajo nivel depende de abstracciones y clases de bajo nivel (EdoExperience, KyotoExperience, admeas de las excepciones lanzadas).
+// DIP: Esta clase de bajo nivel depende de abstracciones y clases de bajo nivel (excepciones lanzadas).
 
 // Expert: Como esta clase conoce todas las experiencias, se encarga de definir el comportamiento de agregado de nuevas experiencias,
 // de agregado de nuevos viajeros, de comenzar el juego, etc.
@@ -13,6 +13,7 @@
 // Creator: Se crean las expceciones lanzadas ya que se usan de manera cercana.
 
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace Library
 {
@@ -22,10 +23,10 @@ namespace Library
         private IExperience _last;
         private List<IExperience> _way;
 
-        public GameHandler()
+        public GameHandler(IExperience first, IExperience last)
         {
-            this._first = new EdoExperience();
-            this._last = new KyotoExperience();
+            this._first = first;
+            this._last = last;
 
             this._way = new List<IExperience>();
 
@@ -50,13 +51,17 @@ namespace Library
             {
                 throw new AlreadyStartedGameExcpetion();
             }
-            if (experience.GetType().Equals(this._first))
+            if (experience.GetType().Equals(this._first.GetType()))
             {
                 throw new CanNotAddFirstExperienceExcpetion();
             }
-            if (experience.GetType().Equals(this._last))
+            if (experience.GetType().Equals(this._last.GetType()))
             {
                 throw new CanNotAddLastExperienceExcpetion();
+            }
+            if (this._way.IndexOf(experience) != -1)
+            {
+                throw new AlreadyAddedExperience();
             }
             this._way.Add(experience);
         }
@@ -66,11 +71,11 @@ namespace Library
             {
                 throw new AlreadyStartedGameExcpetion();
             }
-            if (experience.GetType().Equals(this._first))
+            if (experience.GetType().Equals(this._first.GetType()))
             {
                 throw new CanNotAddFirstExperienceExcpetion();
             }
-            if (experience.GetType().Equals(this._last))
+            if (experience.GetType().Equals(this._last.GetType()))
             {
                 throw new CanNotAddLastExperienceExcpetion();
             }
@@ -123,7 +128,7 @@ namespace Library
                     {
                         throw new NoYourMovementExcpetion();
                     }
-                    if (this._way.IndexOf(experience) > this._way.IndexOf(to))
+                    if (this._way.IndexOf(experience) >= this._way.IndexOf(to))
                     {
                         throw new NoGoBackExcpetion();
                     }
@@ -136,6 +141,7 @@ namespace Library
                         intTo++;
                         added = tryTo.Add(traveler);
                     }
+                    break;
                 }
             }
         }
@@ -143,6 +149,10 @@ namespace Library
         {
             foreach (IExperience experience in this._way)
             {
+                if (!this.IsStarted())
+                {
+                    return false;
+                }
                 if (!experience.IsEmpty() && experience != this._last)
                 {
                     return false;
@@ -150,7 +160,7 @@ namespace Library
             }
             return true;
         }
-        public List<(string, int)> Result()
+        public ReadOnlyCollection<(string, int)> Result()
         {
             if (!this.IsEnded())
             {
@@ -161,7 +171,7 @@ namespace Library
             {
                 toReturn.Add(traveler.Result());
             }
-            return toReturn;
+            return toReturn.AsReadOnly();
         }
     }
 }
