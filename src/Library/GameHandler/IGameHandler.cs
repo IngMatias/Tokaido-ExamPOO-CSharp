@@ -5,7 +5,7 @@
 
 // DIP: Esta clase de alto nivel depende solamente de abstracciones.
 
-using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace Library
 {
@@ -19,6 +19,6 @@ namespace Library
         public void Remove(AbstractTraveler traveler);
         public void Move(AbstractTraveler traveler, IExperience to);
         public bool IsEnded();
-        public List<(string, int)> Result();
+        public ReadOnlyCollection<(string, int)> Result();
     }
 }
