@@ -20,10 +20,21 @@ namespace Library
     /// </summary>
     public class TermalWaterExperience : IExperience
     {
+        /// <summary>
+        /// Beneficio que las aguas termales otorgan a los viajeros que las visitan.
+        /// </summary>
         private IAcumulable _benefict;
 
+        /// <summary>
+        /// Cantidad maxima de viajeros en la experiencia.
+        /// </summary> 
         private int _size;
+
+        /// <summary>
+        /// Lista de viajeros presentes en la experiencia.
+        /// </summary>
         private List<AbstractTraveler> _travelers;
+
         public ReadOnlyCollection<AbstractTraveler> Travelers
         {
             get 
@@ -31,6 +42,7 @@ namespace Library
                 return this._travelers.AsReadOnly();
             }
         }
+        
         /// <summary>
         /// Inicializa una instancia de <c>TermalWaterExperience</c>.
         /// </summary>

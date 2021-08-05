@@ -18,7 +18,11 @@ namespace Library
     /// </summary>
     public class PointsToInt : AbstractIAcumulableToInt
     {
+        /// <summary>
+        /// Valor de un punto.
+        /// </summary>
         private int _onePointValue;
+
         /// <summary>
         /// Inicializa una instancia de <c>PointsToInt</c>.
         /// </summary>

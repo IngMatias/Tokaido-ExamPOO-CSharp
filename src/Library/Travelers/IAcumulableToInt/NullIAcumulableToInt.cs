@@ -25,7 +25,6 @@ namespace Library
         :base(null)
         {
         }
-
         public override int Convert(IAcumulable benefict)
         {
             // Cuando se llega al ultimo eslabon se lanza una excepcion de falta de implementacion de convertor.

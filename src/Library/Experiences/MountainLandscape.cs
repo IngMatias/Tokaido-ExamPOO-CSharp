@@ -23,9 +23,19 @@ namespace Library
     /// </summary>
     public class MountainLandscape : ILandscape
     {
+        /// <summary>
+        /// Diferencia entre dos beneficios consecutivos al mismo viajero. 
+        /// </summary>
         private int _valueDifference;
 
+        /// <summary>
+        /// Cantidad maxima de viajeros en la experiencia.
+        /// </summary> 
         private int _size;
+
+        /// <summary>
+        /// Lista de viajeros presentes en la experiencia.
+        /// </summary>
         private List<AbstractTraveler> _travelers;
         public ReadOnlyCollection<AbstractTraveler> Travelers
         {
@@ -34,6 +44,7 @@ namespace Library
                 return this._travelers.AsReadOnly();
             }
         }
+        
         /// <summary>
         /// Inicializa una instancia de <c>MountainLandscape</c>.
         /// </summary>
@@ -59,6 +70,12 @@ namespace Library
             }
             return value;
         }
+
+        /// <summary>
+        /// Retorna el beneficio que otrgaria a un viajero dado.
+        /// </summary>
+        /// <param name="traveler">Viajero del cual se calcula el beneficio a otrogar.</param>
+        /// <returns>Beneficio que las aguas termales otorgarán al viajero.</returns>
         private IAcumulable Benefict(AbstractTraveler traveler)
         {
             return new Points(this.NextValueBenefict(traveler));

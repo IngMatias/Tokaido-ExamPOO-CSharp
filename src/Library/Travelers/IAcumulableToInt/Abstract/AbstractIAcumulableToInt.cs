@@ -14,7 +14,11 @@ namespace Library
     /// </summary>
     public abstract class AbstractIAcumulableToInt
     {
+        /// <summary>
+        /// Siguiente eslabon en la cadena de responsabilidades.
+        /// </summary>
         private AbstractIAcumulableToInt _next;
+
         /// <summary>
         /// Inicializa una instancia de AbstractIAcumulableToInt.
         /// </summary>
@@ -23,12 +27,14 @@ namespace Library
         {
             this._next = next;
         }
+
         /// <summary>
         /// Convierte una bolsa de monedas en su valor.
         /// </summary>
         /// <param name="benefict">Bolsa de monedas a calcular su valor.</param>
         /// <returns></returns>
         public abstract int Convert(IAcumulable benefict);
+        
         /// <summary>
         /// Pasa la bolsa al siguiente eslabon para ser convertida a su valor.
         /// </summary>

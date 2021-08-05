@@ -20,9 +20,19 @@ namespace Library
     /// </summary>
     public class FarmExperience : IExperience
     {
+        /// <summary>
+        /// Beneficio que la granja otorga a los viajeros que la visita.
+        /// </summary>
         private IAcumulable _benefict;
 
+        /// <summary>
+        /// Cantidad maxima de viajeros en la experiencia.
+        /// </summary> 
         private int _size;
+
+        /// <summary>
+        /// Lista de viajeros presentes en la experiencia.
+        /// </summary>
         private List<AbstractTraveler> _travelers;
         public ReadOnlyCollection<AbstractTraveler> Travelers
         {
@@ -31,6 +41,7 @@ namespace Library
                 return this._travelers.AsReadOnly();
             }
         }
+        
         /// <summary>
         /// Inicializa una instancia de <c>FarmExperience</c>.
         /// </summary>

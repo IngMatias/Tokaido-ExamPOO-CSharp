@@ -22,8 +22,16 @@ namespace Library
     /// </summary>
     public class GameHandler : IGameHandler
     {
+        /// <summary>
+        /// Experiencia que marca el inicio del camino (solo puede haber una por camino, normalmente de tipo Edo).
+        /// </summary>
         private IExperience _first;
+
+        /// <summary>
+        /// Experiencia que marca el fin del camino (solo puede haber una por camino, normalmente de tipo Kyoto).
+        /// </summary>
         private IExperience _last;
+
         private List<IExperience> _way;
         /// <summary>
         /// Inicializa una instancia de <c>GameHandler</c>
