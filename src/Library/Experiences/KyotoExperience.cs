@@ -19,6 +19,9 @@ namespace Library
     /// </summary>
     public class KyotoExperience : IExperience
     {
+        /// <summary>
+        /// Lista de viajeros presentes en la experiencia.
+        /// </summary>
         private List<AbstractTraveler> _travelers;
         public ReadOnlyCollection<AbstractTraveler> Travelers
         {
@@ -27,6 +30,7 @@ namespace Library
                 return this._travelers.AsReadOnly();
             }
         }
+        
         /// <summary>
         /// Inicializa una instancia de <c>KyotoExperience</c>.
         /// </summary>

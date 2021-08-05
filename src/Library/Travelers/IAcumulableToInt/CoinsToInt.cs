@@ -18,7 +18,11 @@ namespace Library
     /// </summary>
     public class CoinsToInt : AbstractIAcumulableToInt
     {
+        /// <summary>
+        /// Valor de un coin.
+        /// </summary>
         private int _onePointValue;
+
         /// <summary>
         /// Inicializa una instancia de <c>CoinsToInt</c>.
         /// </summary>

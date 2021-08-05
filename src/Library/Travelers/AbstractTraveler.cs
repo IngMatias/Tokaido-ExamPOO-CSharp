@@ -19,9 +19,21 @@ namespace Library
     /// </summary>
     public abstract class AbstractTraveler
     {
+        /// <summary>
+        /// Nombre del viajero.
+        /// </summary>
         private string _name;
+
+        /// <summary>
+        /// Lugares visitados.
+        /// </summary>
         private List<IExperience> _visited;
+
+        /// <summary>
+        /// Beneficios (monedas) acumuladas en las visitas a las experiencias.
+        /// </summary>
         private List<IAcumulable> _acumulated;
+
         /// <summary>
         /// Se inicializan las variables de instancia.
         /// </summary>
@@ -32,6 +44,7 @@ namespace Library
             this._visited = new List<IExperience> ();
             this._acumulated = new List<IAcumulable> ();
         }
+
         /// <summary>
         /// Agrega una experiencia y su beneficio a la memoria del viajero.
         /// </summary>
@@ -42,6 +55,7 @@ namespace Library
             this._visited.Add(visited);
             this._acumulated.Add(benefict);
         }
+
         /// <summary>
         /// Obtiene el numero de visitas anteriores de una experiencia.
         /// </summary>
@@ -59,6 +73,7 @@ namespace Library
             }
             return count;
         }
+        
         /// <summary>
         /// Obtiene el puntaje final del viajero.
         /// </summary>
