@@ -11,10 +11,17 @@
 
 namespace Library
 {
+    /// <summary>
+    /// Esta clase representa una bolsa de monedas de tipo <c>Coins</c>
+    /// </summary>
     public class Coins : IAcumulable
     {
         public int Value {get; private set; }
 
+        /// <summary>
+        /// Inicializa una instancia de <c>Coins</c>.
+        /// </summary>
+        /// <param name="value">La cantidad de monedas dentro de la bolsa (no es posible alterar su valor una vez instanciado).</param>
         public Coins(int value)
         {
             this.Value = value;

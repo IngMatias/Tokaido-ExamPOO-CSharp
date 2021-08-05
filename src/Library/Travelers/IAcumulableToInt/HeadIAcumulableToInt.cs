@@ -11,8 +11,14 @@
 
 namespace Library
 {
+    /// <summary>
+    /// Esta clase representa el inicio en la cadena de conversiones.
+    /// </summary>
     public class HeadAcumulableToInt : AbstractIAcumulableToInt
     {
+        /// <summary>
+        /// Inicializa una instancia de <c>HeadAcumulableToInt</c>.
+        /// </summary>
         public HeadAcumulableToInt()
         :base(new CoinsToInt())
         {

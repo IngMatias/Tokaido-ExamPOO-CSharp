@@ -9,8 +9,15 @@
 
 namespace Library
 {
+    /// <summary>
+    /// Esta interface representa una bolsa de monedas.
+    /// </summary>
     public interface IAcumulable
     {
+        /// <summary>
+        /// Obtiene la cantidad de monedas dentro de la bolsa (sin tener en cuenta su valor).
+        /// </summary>
+        /// <value>Cero si la bolsa de monedas se encuentra vacia.</value>
         public int Value {get; }
     }
 }

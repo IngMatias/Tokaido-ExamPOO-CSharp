@@ -15,6 +15,9 @@ using System.Collections.ObjectModel;
 
 namespace Library
 {
+    /// <summary>
+    /// Esta clase representa la experiencia de Aguas Termales.
+    /// </summary>
     public class TermalWaterExperience : IExperience
     {
         private IAcumulable _benefict;
@@ -28,6 +31,10 @@ namespace Library
                 return this._travelers.AsReadOnly();
             }
         }
+        /// <summary>
+        /// Inicializa una instancia de <c>TermalWaterExperience</c>.
+        /// </summary>
+        /// <param name="size">Representa la cantidad de viajeros que pueden estar presentes al mismo tiempo dentro de la experiencia.</param>
         public TermalWaterExperience(int size)
         {
             this._benefict = new Points(2);
