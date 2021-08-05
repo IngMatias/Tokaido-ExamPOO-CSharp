@@ -17,12 +17,19 @@ using System.Collections.ObjectModel;
 
 namespace Library
 {
+    /// <summary>
+    /// Esta clase se encarga de manejar el camino del juego.
+    /// </summary>
     public class GameHandler : IGameHandler
     {
         private IExperience _first;
         private IExperience _last;
         private List<IExperience> _way;
-
+        /// <summary>
+        /// Inicializa una instancia de <c>GameHandler</c>
+        /// </summary>
+        /// <param name="first">Experiencia que marca el inicio del camino del juego, no puede haber mas de una de este tipo en el camino.</param>
+        /// <param name="last">Experiencia que marca el fin del camino del juego, no puede haber mas de una de este tipo en el camino.</param>
         public GameHandler(IExperience first, IExperience last)
         {
             this._first = first;

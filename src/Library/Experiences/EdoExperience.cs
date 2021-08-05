@@ -14,6 +14,9 @@ using System.Collections.ObjectModel;
 
 namespace Library
 {
+    /// <summary>
+    /// Esta clase representa la experiencia Kyoto, que normalmente es la primera en el camino del juego.
+    /// </summary>
     public class EdoExperience : IExperience
     {
         private List<AbstractTraveler> _travelers;
@@ -24,6 +27,9 @@ namespace Library
                 return this._travelers.AsReadOnly();
             }
         }
+        /// <summary>
+        /// Inicializa una instancia de <c>EdoExperience</c>.
+        /// </summary>
         public EdoExperience()
         {
             this._travelers = new List<AbstractTraveler>();

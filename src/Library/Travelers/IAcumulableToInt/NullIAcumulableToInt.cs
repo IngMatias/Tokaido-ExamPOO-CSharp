@@ -13,8 +13,14 @@ using System;
 
 namespace Library
 {
+    /// <summary>
+    /// Esta clase representa el ultimo eslabon en la cadena de conversiones.
+    /// </summary>
     public class NullAcumulableToInt : AbstractIAcumulableToInt
     {
+        /// <summary>
+        /// Inicializa una instancia de <c>NullAcumulableToInt</c>
+        /// </summary>
         public NullAcumulableToInt()
         :base(null)
         {

@@ -79,8 +79,8 @@ namespace Library.Test
             this._exp1.Add(this._traveler1);
             this._exp1.Add(this._traveler2);
             this._exp1.Add(this._traveler3);
-            int expected = 1;
             // Assert.
+            int expected = 1;
             Assert.AreEqual(expected, this._exp1.Travelers.Count);
         }
         // Se testea el agregado de tres viajeros a una experiencia con tamaño dos.
@@ -91,8 +91,8 @@ namespace Library.Test
             this._exp2.Add(this._traveler1);
             this._exp2.Add(this._traveler2);
             this._exp2.Add(this._traveler3);
-            int expected = 2;
             // Assert.
+            int expected = 2;
             Assert.AreEqual(expected, this._exp2.Travelers.Count);
         }
         // Se testea el retorno true de Remove.
@@ -149,9 +149,8 @@ namespace Library.Test
             // Act.
             this._exp1.Add(this._traveler1);
             this._exp2.Add(this._traveler1);
-            int expected = 5;
-
             // Assert.
+            int expected = 5;
             Assert.AreEqual(expected, this._exp1.NextValueBenefict(this._traveler1));
         }
     }

@@ -15,6 +15,9 @@ using System.Collections.ObjectModel;
 
 namespace Library
 {
+    /// <summary>
+    /// Esta clase representa la experiencia Granja.
+    /// </summary>
     public class FarmExperience : IExperience
     {
         private IAcumulable _benefict;
@@ -28,6 +31,10 @@ namespace Library
                 return this._travelers.AsReadOnly();
             }
         }
+        /// <summary>
+        /// Inicializa una instancia de <c>FarmExperience</c>.
+        /// </summary>
+        /// <param name="size">Representa la cantidad de viajeros que pueden estar presentes al mismo tiempo dentro de la experiencia.</param>
         public FarmExperience(int size)
         {
             this._benefict = new Coins(3);

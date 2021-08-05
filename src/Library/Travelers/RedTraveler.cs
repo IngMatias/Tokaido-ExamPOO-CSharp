@@ -9,8 +9,15 @@
 
 namespace Library
 {
+    /// <summary>
+    /// Esta clase representa un jugador Rojo.
+    /// </summary>
     public class RedTraveler : AbstractTraveler
     {
+        /// <summary>
+        /// Se inicializa una instancia de <c>AbstractTraveler</c>.
+        /// </summary>
+        /// <param name="name">Nombre del jugador</param>
         public RedTraveler(string name)
         :base(name)
         {

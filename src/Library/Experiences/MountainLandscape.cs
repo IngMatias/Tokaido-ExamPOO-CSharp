@@ -18,6 +18,9 @@ using System.Collections.ObjectModel;
 
 namespace Library
 {
+    /// <summary>
+    /// Esta clase representa el paisaje de Montañas.
+    /// </summary>
     public class MountainLandscape : ILandscape
     {
         private int _valueDifference;
@@ -31,6 +34,10 @@ namespace Library
                 return this._travelers.AsReadOnly();
             }
         }
+        /// <summary>
+        /// Inicializa una instancia de <c>MountainLandscape</c>.
+        /// </summary>
+        /// <param name="size">Representa la cantidad de viajeros que pueden estar presentes al mismo tiempo dentro de la experiencia.</param>
         public MountainLandscape(int size)
         {
             this._valueDifference = 1;

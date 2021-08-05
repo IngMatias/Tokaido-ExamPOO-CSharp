@@ -30,6 +30,7 @@ namespace Library.Test
         [SetUp]
         public void Setup()
         {
+            // Arrange.
             this._traveler = new BlueTraveler("");
 
             this._edo = new EdoExperience();
@@ -62,6 +63,7 @@ namespace Library.Test
         [Test]
         public void NoEdoVisits()
         {
+            // Assert.
             int expected = 0;
             Assert.AreEqual(expected, this._traveler.Visits(this._edo));
         }
@@ -69,6 +71,7 @@ namespace Library.Test
         [Test]
         public void NoKyotoVisits()
         {
+            // Assert.
             int expected = 0;
             Assert.AreEqual(expected, this._traveler.Visits(this._kyoto));
         }
@@ -76,6 +79,7 @@ namespace Library.Test
         [Test]
         public void NoFarmVisits()
         {
+            // Assert.
             int expected = 0;
             Assert.AreEqual(expected, this._traveler.Visits(this._farm));
         }
@@ -83,6 +87,7 @@ namespace Library.Test
         [Test]
         public void NoTermalWaterVisits()
         {
+            // Assert.
             int expected = 0;
             Assert.AreEqual(expected, this._traveler.Visits(this._termal));
         }
@@ -90,6 +95,7 @@ namespace Library.Test
         [Test]
         public void NoMountainVisits()
         {
+            // Assert.
             int expected = 0;
             Assert.AreEqual(expected, this._traveler.Visits(this._mountain));
         }
@@ -97,6 +103,7 @@ namespace Library.Test
         [Test]
         public void NoOceanVisits()
         {
+            // Assert.
             int expected = 0;
             Assert.AreEqual(expected, this._traveler.Visits(this._ocean));
         }
@@ -104,7 +111,9 @@ namespace Library.Test
         [Test]
         public void EdoVisit()
         {
+            // Act.
             this._edo.Add(this._traveler);
+            // Assert.
             int expected = 1;
             Assert.AreEqual(expected, this._traveler.Visits(this._edo));
         }
@@ -112,7 +121,9 @@ namespace Library.Test
         [Test]
         public void KyotoVisit()
         {
+            // Act.
             this._kyoto.Add(this._traveler);
+            // Assert.
             int expected = 1;
             Assert.AreEqual(expected, this._traveler.Visits(this._kyoto));
         }
@@ -120,7 +131,9 @@ namespace Library.Test
         [Test]
         public void FarmVisit()
         {
+            // Act.
             this._farm.Add(this._traveler);
+            // Assert.
             int expected = 1;
             Assert.AreEqual(expected, this._traveler.Visits(this._farm));
         }
@@ -128,7 +141,9 @@ namespace Library.Test
         [Test]
         public void TermalWaterVisit()
         {
+            // Act.
             this._termal.Add(this._traveler);
+            // Assert.
             int expected = 1;
             Assert.AreEqual(expected, this._traveler.Visits(this._termal));
         }
@@ -136,7 +151,9 @@ namespace Library.Test
         [Test]
         public void MountainVisit()
         {
+            // Act.
             this._mountain.Add(this._traveler);
+            // Assert.
             int expected = 1;
             Assert.AreEqual(expected, this._traveler.Visits(this._mountain));
         }
@@ -144,7 +161,9 @@ namespace Library.Test
         [Test]
         public void OceanVisit()
         {
+            // Act.
             this._ocean.Add(this._traveler);
+            // Assert.
             int expected = 1;
             Assert.AreEqual(expected, this._traveler.Visits(this._ocean));
         }
@@ -152,8 +171,10 @@ namespace Library.Test
         [Test]
         public void EdoVisits()
         {
+            // Act.
             this._edo.Add(this._traveler);
             this._kyoto.Add(this._traveler);
+            // Assert.
             int expected = 1;
             Assert.AreEqual(expected, this._traveler.Visits(this._edo));
         }
@@ -161,8 +182,10 @@ namespace Library.Test
         [Test]
         public void KyotoVisits()
         {
+            // Act.
             this._kyoto.Add(this._traveler);
             this._farm.Add(this._traveler);
+            // Assert.
             int expected = 1;
             Assert.AreEqual(expected, this._traveler.Visits(this._kyoto));
         }
@@ -170,8 +193,10 @@ namespace Library.Test
         [Test]
         public void FarmVisits()
         {
+            // Act.
             this._farm.Add(this._traveler);
             this._termal.Add(this._traveler);
+            // Assert.
             int expected = 1;
             Assert.AreEqual(expected, this._traveler.Visits(this._farm));
         }
@@ -179,8 +204,10 @@ namespace Library.Test
         [Test]
         public void TermalWaterVisits()
         {
+            // Act.
             this._termal.Add(this._traveler);
             this._mountain.Add(this._traveler);
+            // Assert.
             int expected = 1;
             Assert.AreEqual(expected, this._traveler.Visits(this._termal));
         }
@@ -188,8 +215,10 @@ namespace Library.Test
         [Test]
         public void MountainVisits()
         {
+            // Act.
             this._mountain.Add(this._traveler);
             this._ocean.Add(this._traveler);
+            // Assert.
             int expected = 1;
             Assert.AreEqual(expected, this._traveler.Visits(this._mountain));
         }
@@ -197,8 +226,10 @@ namespace Library.Test
         [Test]
         public void OceanVisits()
         {
+            // Act.
             this._ocean.Add(this._traveler);
             this._edo.Add(this._traveler);
+            // Assert.
             int expected = 1;
             Assert.AreEqual(expected, this._traveler.Visits(this._ocean));
         }
@@ -206,8 +237,10 @@ namespace Library.Test
         [Test]
         public void TwoEdoVisits()
         {
+            // Act.
             this._edo.Add(this._traveler);
             this._edo2.Add(this._traveler);
+            // Assert.
             int expected = 2;
             Assert.AreEqual(expected, this._traveler.Visits(this._edo));
         }
@@ -215,8 +248,10 @@ namespace Library.Test
         [Test]
         public void TwoKyotoVisits()
         {
+            // Act.
             this._kyoto.Add(this._traveler);
             this._kyoto2.Add(this._traveler);
+            // Assert.
             int expected = 2;
             Assert.AreEqual(expected, this._traveler.Visits(this._kyoto));
         }
@@ -224,8 +259,10 @@ namespace Library.Test
         [Test]
         public void TwoFarmVisits()
         {
+            // Act.
             this._farm.Add(this._traveler);
             this._farm2.Add(this._traveler);
+            // Assert.
             int expected = 2;
             Assert.AreEqual(expected, this._traveler.Visits(this._farm));
         }
@@ -233,8 +270,10 @@ namespace Library.Test
         [Test]
         public void TwoTermalWaterVisits()
         {
+            // Act.
             this._termal.Add(this._traveler);
             this._termal2.Add(this._traveler);
+            // Assert.
             int expected = 2;
             Assert.AreEqual(expected, this._traveler.Visits(this._termal));
         }
@@ -242,8 +281,10 @@ namespace Library.Test
         [Test]
         public void TwoMountainVisits()
         {
+            // Act.
             this._mountain.Add(this._traveler);
             this._mountain2.Add(this._traveler);
+            // Assert.
             int expected = 2;
             Assert.AreEqual(expected, this._traveler.Visits(this._mountain));
         }
@@ -251,8 +292,10 @@ namespace Library.Test
         [Test]
         public void TwoOceanVisits()
         {
+            // Act.
             this._ocean.Add(this._traveler);
             this._ocean2.Add(this._traveler);
+            // Assert.
             int expected = 2;
             Assert.AreEqual(expected, this._traveler.Visits(this._ocean));
         }
@@ -260,8 +303,10 @@ namespace Library.Test
         [Test]
         public void TwoSameEdoVisits()
         {
+            // Act.
             this._edo.Add(this._traveler);
             this._edo.Add(this._traveler);
+            // Assert.
             int expected = 1;
             Assert.AreEqual(expected, this._traveler.Visits(this._edo));
         }
@@ -269,8 +314,10 @@ namespace Library.Test
         [Test]
         public void TwoSameKyotoVisits()
         {
+            // Act.
             this._kyoto.Add(this._traveler);
             this._kyoto.Add(this._traveler);
+            // Assert.
             int expected = 1;
             Assert.AreEqual(expected, this._traveler.Visits(this._kyoto));
         }
@@ -278,8 +325,10 @@ namespace Library.Test
         [Test]
         public void TwoSameFarmVisits()
         {
+            // Act.
             this._farm.Add(this._traveler);
             this._farm.Add(this._traveler);
+            // Assert.
             int expected = 1;
             Assert.AreEqual(expected, this._traveler.Visits(this._farm));
         }
@@ -287,8 +336,10 @@ namespace Library.Test
         [Test]
         public void TwoSameTermalWaterVisits()
         {
+            // Act.
             this._termal.Add(this._traveler);
             this._termal.Add(this._traveler);
+            // Assert.
             int expected = 1;
             Assert.AreEqual(expected, this._traveler.Visits(this._termal));
         }
@@ -296,8 +347,10 @@ namespace Library.Test
         [Test]
         public void TwoSameMountainVisits()
         {
+            // Act.
             this._mountain.Add(this._traveler);
             this._mountain.Add(this._traveler);
+            // Assert.
             int expected = 1;
             Assert.AreEqual(expected, this._traveler.Visits(this._mountain));
         }
@@ -305,8 +358,10 @@ namespace Library.Test
         [Test]
         public void TwoSameOceanVisits()
         {
+            // Act.
             this._ocean.Add(this._traveler);
             this._ocean.Add(this._traveler);
+            // Assert.
             int expected = 1;
             Assert.AreEqual(expected, this._traveler.Visits(this._ocean));
         }
@@ -316,6 +371,7 @@ namespace Library.Test
         [Test]
         public void NoResult()
         {
+            // Assert.
             (string,int) expected = ("",0);
             Assert.AreEqual(expected, this._traveler.Result());
         }
@@ -324,7 +380,9 @@ namespace Library.Test
         [Test]
         public void EdoResult()
         {
+            // Act.
             this._edo.Add(this._traveler);
+            // Assert.
             (string,int) expected = ("",0);
             Assert.AreEqual(expected, this._traveler.Result());
         }
@@ -332,7 +390,9 @@ namespace Library.Test
         [Test]
         public void KyotoResult()
         {
+            // Act.
             this._kyoto.Add(this._traveler);
+            // Assert.
             (string,int) expected = ("",0);
             Assert.AreEqual(expected, this._traveler.Result());
         }
@@ -340,7 +400,9 @@ namespace Library.Test
         [Test]
         public void FarmResult()
         {
+            // Act.
             this._farm.Add(this._traveler);
+            // Assert.
             (string,int) expected = ("",this._convertor.Convert(new Coins(3)));
             Assert.AreEqual(expected, this._traveler.Result());
         }
@@ -348,7 +410,9 @@ namespace Library.Test
         [Test]
         public void TermalWaterResult()
         {
+            // Act.
             this._termal.Add(this._traveler);
+            // Assert.
             (string,int) expected = ("",this._convertor.Convert(new Points(2)));
             Assert.AreEqual(expected, this._traveler.Result());
         }
@@ -356,7 +420,9 @@ namespace Library.Test
         [Test]
         public void MountainResult()
         {
+            // Act.
             this._mountain.Add(this._traveler);
+            // Assert.
             (string,int) expected = ("",this._convertor.Convert(new Points(1)));
             Assert.AreEqual(expected, this._traveler.Result());
         }
@@ -364,7 +430,9 @@ namespace Library.Test
         [Test]
         public void OceanResult()
         {
+            // Act.
             this._ocean.Add(this._traveler);
+            // Assert.
             (string,int) expected = ("",this._convertor.Convert(new Points(1)));
             Assert.AreEqual(expected, this._traveler.Result());
         }
@@ -372,8 +440,10 @@ namespace Library.Test
         [Test]
         public void EdoResults()
         {
+            // Act.
             this._edo.Add(this._traveler);
             this._kyoto.Add(this._traveler);
+            // Assert.
             (string,int) expected = ("",this._convertor.Convert(new Coins(0)));
             Assert.AreEqual(expected, this._traveler.Result());
         }
@@ -381,8 +451,10 @@ namespace Library.Test
         [Test]
         public void KyotoResults()
         {
+            // Act.
             this._kyoto.Add(this._traveler);
             this._farm.Add(this._traveler);
+            // Assert.
             (string,int) expected = ("",this._convertor.Convert(new Coins(3)));
             Assert.AreEqual(expected, this._traveler.Result());
         }
@@ -390,8 +462,10 @@ namespace Library.Test
         [Test]
         public void FarmResults()
         {
+            // Act.
             this._farm.Add(this._traveler);
             this._termal.Add(this._traveler);
+            // Assert.
             (string,int) expected = ("",this._convertor.Convert(new Coins(3)) + this._convertor.Convert(new Points(2)));
             Assert.AreEqual(expected, this._traveler.Result());
         }
@@ -399,8 +473,10 @@ namespace Library.Test
         [Test]
         public void TermalWaterResults()
         {
+            // Act.
             this._termal.Add(this._traveler);
             this._mountain.Add(this._traveler);
+            // Assert.
             (string,int) expected = ("",this._convertor.Convert(new Points(3)));
             Assert.AreEqual(expected, this._traveler.Result());
         }
@@ -408,8 +484,10 @@ namespace Library.Test
         [Test]
         public void MountainResults()
         {
+            // Act.
             this._mountain.Add(this._traveler);
             this._ocean.Add(this._traveler);
+            // Assert.
             (string,int) expected = ("",this._convertor.Convert(new Points(2)));
             Assert.AreEqual(expected, this._traveler.Result());
         }
@@ -417,8 +495,10 @@ namespace Library.Test
         [Test]
         public void OceanResults()
         {
+            // Act.
             this._ocean.Add(this._traveler);
             this._edo.Add(this._traveler);
+            // Assert.
             (string,int) expected = ("",this._convertor.Convert(new Points(1)));
             Assert.AreEqual(expected, this._traveler.Result());
         }
@@ -426,8 +506,10 @@ namespace Library.Test
         [Test]
         public void TwoEdoResults()
         {
+            // Act.
             this._edo.Add(this._traveler);
             this._edo2.Add(this._traveler);
+            // Assert.
             (string,int) expected = ("",this._convertor.Convert(new Coins(0)));
             Assert.AreEqual(expected, this._traveler.Result());
         }
@@ -435,8 +517,10 @@ namespace Library.Test
         [Test]
         public void TwoKyotoResults()
         {
+            // Act.
             this._kyoto.Add(this._traveler);
             this._kyoto2.Add(this._traveler);
+            // Assert.
             (string,int) expected = ("",this._convertor.Convert(new Coins(0)));
             Assert.AreEqual(expected, this._traveler.Result());
         }
@@ -444,8 +528,10 @@ namespace Library.Test
         [Test]
         public void TwoFarmResults()
         {
+            // Act.
             this._farm.Add(this._traveler);
             this._farm2.Add(this._traveler);
+            // Assert.
             (string,int) expected = ("",this._convertor.Convert(new Coins(3*2)));
             Assert.AreEqual(expected, this._traveler.Result());
         }
@@ -453,8 +539,10 @@ namespace Library.Test
         [Test]
         public void TwoTermalWaterResults()
         {
+            // Act.
             this._termal.Add(this._traveler);
             this._termal2.Add(this._traveler);
+            // Assert.
             (string,int) expected = ("",this._convertor.Convert(new Points(2*2)));
             Assert.AreEqual(expected, this._traveler.Result());
         }
@@ -462,8 +550,10 @@ namespace Library.Test
         [Test]
         public void TwoMountainResults()
         {
+            // Act.
             this._mountain.Add(this._traveler);
             this._mountain2.Add(this._traveler);
+            // Assert.
             (string,int) expected = ("",this._convertor.Convert(new Points(1+2)));
             Assert.AreEqual(expected, this._traveler.Result());
         }
@@ -471,8 +561,10 @@ namespace Library.Test
         [Test]
         public void TwoOceanResults()
         {
+            // Act.
             this._ocean.Add(this._traveler);
             this._ocean2.Add(this._traveler);
+            // Assert.
             (string,int) expected = ("",this._convertor.Convert(new Points(1+3)));
             Assert.AreEqual(expected, this._traveler.Result());
         }
@@ -480,8 +572,10 @@ namespace Library.Test
         [Test]
         public void TwoSameEdoResults()
         {
+            // Act.
             this._edo.Add(this._traveler);
             this._edo.Add(this._traveler);
+            // Assert.
             (string,int) expected = ("",this._convertor.Convert(new Coins(0)));
             Assert.AreEqual(expected, this._traveler.Result());
         }
@@ -489,8 +583,10 @@ namespace Library.Test
         [Test]
         public void TwoSameKyotoResults()
         {
+            // Act.
             this._kyoto.Add(this._traveler);
             this._kyoto.Add(this._traveler);
+            // Assert.
             (string,int) expected = ("",this._convertor.Convert(new Coins(0)));
             Assert.AreEqual(expected, this._traveler.Result());
         }
@@ -498,8 +594,10 @@ namespace Library.Test
         [Test]
         public void TwoSameFarmResults()
         {
+            // Act.
             this._farm.Add(this._traveler);
             this._farm.Add(this._traveler);
+            // Assert.
             (string,int) expected = ("",this._convertor.Convert(new Coins(3)));
             Assert.AreEqual(expected, this._traveler.Result());
         }
@@ -507,8 +605,10 @@ namespace Library.Test
         [Test]
         public void TwoSameTermalWaterResults()
         {
+            // Act.
             this._termal.Add(this._traveler);
             this._termal.Add(this._traveler);
+            // Assert.
             (string,int) expected = ("",this._convertor.Convert(new Points(2)));
             Assert.AreEqual(expected, this._traveler.Result());
         }
@@ -516,8 +616,10 @@ namespace Library.Test
         [Test]
         public void TwoSameMountainResults()
         {
+            // Act.
             this._mountain.Add(this._traveler);
             this._mountain.Add(this._traveler);
+            // Assert.
             (string,int) expected = ("",this._convertor.Convert(new Points(1)));
             Assert.AreEqual(expected, this._traveler.Result());
         }
@@ -525,8 +627,10 @@ namespace Library.Test
         [Test]
         public void TwoSameOceanResults()
         {
+            // Act.
             this._ocean.Add(this._traveler);
             this._ocean.Add(this._traveler);
+            // Assert.
             (string,int) expected = ("",this._convertor.Convert(new Points(1)));
             Assert.AreEqual(expected, this._traveler.Result());
         }
@@ -534,6 +638,7 @@ namespace Library.Test
         [Test]
         public void ALotOfVisits()
         {
+            // Act.
             this._edo.Add(this._traveler);
             this._edo2.Add(this._traveler);
             this._edo3.Add(this._traveler);
@@ -562,7 +667,7 @@ namespace Library.Test
             this._kyoto.Add(this._traveler);
             this._kyoto2.Add(this._traveler);
             this._kyoto3.Add(this._traveler);
-
+            // Assert.
             Assert.AreEqual(("",expectedInt), this._traveler.Result());
         }
     }

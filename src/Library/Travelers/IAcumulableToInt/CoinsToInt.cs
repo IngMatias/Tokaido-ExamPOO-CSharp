@@ -13,9 +13,15 @@
 
 namespace Library
 {
+    /// <summary>
+    /// Esta clase retorna el valor de una bolsa de <c>Coins</c>.
+    /// </summary>
     public class CoinsToInt : AbstractIAcumulableToInt
     {
         private int _onePointValue;
+        /// <summary>
+        /// Inicializa una instancia de <c>CoinsToInt</c>.
+        /// </summary>
         public CoinsToInt()
         :base(new PointsToInt())
         {
