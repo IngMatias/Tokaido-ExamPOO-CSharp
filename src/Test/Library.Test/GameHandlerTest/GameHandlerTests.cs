@@ -976,5 +976,324 @@ namespace Library.Test
             // Assert.
             Assert.AreEqual(expected,this._game.Result());  
         }
+        [Test]
+        public void FullEnd()
+        {
+            this._game.Add(this._farm);
+            
+            this._game.Add(this._traveler);
+            this._game.Add(this._traveler2);
+            this._game.Add(this._traveler3);
+
+            this._game.StartGame();
+
+            this._game.Move(this._traveler, this._farm);
+            this._game.Move(this._traveler2, this._farm);
+            this._game.Move(this._traveler3, this._farm);
+
+            this._game.Move(this._traveler, this._kyoto);
+            this._game.Move(this._traveler2, this._kyoto);
+
+            Assert.IsTrue(this._game.IsEnded());
+        }
+        // Ganadores sin empezar la partida.
+        [Test]
+        public void NotStartedWinners()
+        {
+            Assert.Throws<NotStartedGameException>(() => this._game.Winners());
+        }
+        // Ganadores sin jugadores.
+        [Test]
+        public void EndedEmptyWinners()
+        {
+            this._game.StartGame();
+            Assert.AreEqual(new List<(string, int)> (), this._game.Winners());
+        }
+        // Ganadores sin terminar la partida.
+        [Test]
+        public void NotEndedGame()
+        {
+            this._game.Add(this._traveler);
+            this._game.StartGame();
+            Assert.Throws<NotEndedGameException>(() => this._game.Winners());
+        }
+        // Un ganador.
+        [Test]
+        public void OneWinnerNoExperience()
+        {
+            this._game.Add(this._traveler);
+            this._game.StartGame();
+            this._game.Move(this._traveler, this._kyoto);
+            List<(string, int)> expected = new List<(string, int)> ();
+            expected.Add(("",0));
+            Assert.AreEqual(expected, this._game.Winners());
+        }
+        [Test]
+        public void OneWinnerFarmExperience()
+        {
+            this._game.Add(this._farm);
+            this._game.Add(this._traveler);
+            this._game.StartGame();
+
+            this._game.Move(this._traveler, this._farm);
+            int expectedInt = this._convertor.Convert(new Coins(3));
+
+            this._game.Move(this._traveler, this._kyoto);
+
+            List<(string, int)> expected = new List<(string, int)> ();
+            expected.Add(("",expectedInt));
+
+            Assert.AreEqual(expected, this._game.Winners());
+        }
+        [Test]
+        public void OneWinnerTermalExperience()
+        {
+            this._game.Add(this._termal);
+            this._game.Add(this._traveler);
+            this._game.StartGame();
+
+            this._game.Move(this._traveler, this._termal);
+            int expectedInt = this._convertor.Convert(new Points(2));
+
+            this._game.Move(this._traveler, this._kyoto);
+
+            List<(string, int)> expected = new List<(string, int)> ();
+            expected.Add(("",expectedInt));
+            
+            Assert.AreEqual(expected, this._game.Winners());
+        }
+        [Test]
+        public void OneWinnerMountainExperience()
+        {
+            this._game.Add(this._mountain);
+            this._game.Add(this._traveler);
+            this._game.StartGame();
+
+            this._game.Move(this._traveler, this._mountain);
+            int expectedInt = this._convertor.Convert(new Points(1));
+
+            this._game.Move(this._traveler, this._kyoto);
+
+            List<(string, int)> expected = new List<(string, int)> ();
+            expected.Add(("",expectedInt));
+            
+            Assert.AreEqual(expected, this._game.Winners());
+        }
+        [Test]
+        public void OneWinnerOceanExperience()
+        {
+            this._game.Add(this._ocean);
+            this._game.Add(this._traveler);
+            this._game.StartGame();
+
+            this._game.Move(this._traveler, this._ocean);
+            int expectedInt = this._convertor.Convert(new Points(1));
+
+            this._game.Move(this._traveler, this._kyoto);
+
+            List<(string, int)> expected = new List<(string, int)> ();
+            expected.Add(("",expectedInt));
+            
+            Assert.AreEqual(expected, this._game.Winners());
+        }
+        // Un ganador, dos jugadores.
+        [Test]
+        public void OneWinnerTwoPlayersFarmExperience()
+        {
+            this._game.Add(this._farm);
+
+            this._game.Add(this._traveler);
+            this._game.Add(this._traveler2);
+
+            this._game.StartGame();
+
+            this._game.Move(this._traveler, this._farm);
+            int expectedInt = this._convertor.Convert(new Coins(3));
+
+            this._game.Move(this._traveler2, this._kyoto);
+            this._game.Move(this._traveler, this._kyoto);
+
+            List<(string, int)> expected = new List<(string, int)> ();
+            expected.Add(("",expectedInt));
+
+            Assert.AreEqual(expected, this._game.Winners());
+        }
+        [Test]
+        public void OneWinnerTwoPlayersTermalExperience()
+        {
+            this._game.Add(this._termal);
+
+            this._game.Add(this._traveler);
+            this._game.Add(this._traveler2);
+
+            this._game.StartGame();
+
+            this._game.Move(this._traveler, this._termal);
+            int expectedInt = this._convertor.Convert(new Points(2));
+
+            this._game.Move(this._traveler2, this._kyoto);
+            this._game.Move(this._traveler, this._kyoto);
+
+            List<(string, int)> expected = new List<(string, int)> ();
+            expected.Add(("",expectedInt));
+            
+            Assert.AreEqual(expected, this._game.Winners());
+        }
+        [Test]
+        public void OneWinnerTwoPlayersMountainExperience()
+        {
+            this._game.Add(this._mountain);
+
+            this._game.Add(this._traveler);
+            this._game.Add(this._traveler2);
+
+            this._game.StartGame();
+
+            this._game.Move(this._traveler, this._mountain);
+            int expectedInt = this._convertor.Convert(new Points(1));
+
+            this._game.Move(this._traveler2, this._kyoto);
+            this._game.Move(this._traveler, this._kyoto);
+
+            List<(string, int)> expected = new List<(string, int)> ();
+            expected.Add(("",expectedInt));
+            
+            Assert.AreEqual(expected, this._game.Winners());
+        }
+        [Test]
+        public void OneWinnerTwoPlayersOceanExperience()
+        {
+            this._game.Add(this._ocean);
+
+            this._game.Add(this._traveler);
+            this._game.Add(this._traveler2);
+
+            this._game.StartGame();
+
+            this._game.Move(this._traveler, this._ocean);
+            int expectedInt = this._convertor.Convert(new Points(1));
+
+            this._game.Move(this._traveler2, this._kyoto);
+            this._game.Move(this._traveler, this._kyoto);
+
+            List<(string, int)> expected = new List<(string, int)> ();
+            expected.Add(("",expectedInt));
+            
+            Assert.AreEqual(expected, this._game.Winners());
+        }
+        // Dos ganadores, dos jugadores.
+        [Test]
+        public void TwoWinnersNoExperience()
+        {
+            this._game.Add(this._traveler);
+            this._game.Add(this._traveler2);
+
+            this._game.StartGame();
+
+            this._game.Move(this._traveler, this._kyoto);
+            this._game.Move(this._traveler2, this._kyoto);
+
+            List<(string, int)> expected = new List<(string, int)> ();
+            expected.Add(("",0));
+            expected.Add(("",0));
+
+            Assert.AreEqual(expected, this._game.Winners());
+        }
+        [Test]
+        public void TwoWinnersFarmExperience()
+        {
+            this._game.Add(this._farm);
+
+            this._game.Add(this._traveler);
+            this._game.Add(this._traveler2);
+
+            this._game.StartGame();
+
+            this._game.Move(this._traveler, this._farm);
+            this._game.Move(this._traveler2, this._farm);
+
+            int expectedInt = this._convertor.Convert(new Coins(3));
+
+            this._game.Move(this._traveler, this._kyoto);
+            this._game.Move(this._traveler2, this._kyoto);
+
+            List<(string, int)> expected = new List<(string, int)> ();
+            expected.Add(("",expectedInt));
+            expected.Add(("",expectedInt));
+
+            Assert.AreEqual(expected, this._game.Winners());
+        }
+        [Test]
+        public void TwoWinnersTermalExperience()
+        {
+            this._game.Add(this._termal);
+
+            this._game.Add(this._traveler);
+            this._game.Add(this._traveler2);
+
+            this._game.StartGame();
+
+            this._game.Move(this._traveler, this._termal);
+            this._game.Move(this._traveler2, this._termal);
+
+            int expectedInt = this._convertor.Convert(new Points(2));
+
+            this._game.Move(this._traveler, this._kyoto);
+            this._game.Move(this._traveler2, this._kyoto);
+
+            List<(string, int)> expected = new List<(string, int)> ();
+            expected.Add(("",expectedInt));
+            expected.Add(("",expectedInt));
+
+            Assert.AreEqual(expected, this._game.Winners());
+        }
+        [Test]
+        public void TwoWinnersMountainExperience()
+        {
+            this._game.Add(this._mountain);
+
+            this._game.Add(this._traveler);
+            this._game.Add(this._traveler2);
+
+            this._game.StartGame();
+
+            this._game.Move(this._traveler, this._mountain);
+            this._game.Move(this._traveler2, this._mountain);
+
+            int expectedInt = this._convertor.Convert(new Points(1));
+
+            this._game.Move(this._traveler, this._kyoto);
+            this._game.Move(this._traveler2, this._kyoto);
+
+            List<(string, int)> expected = new List<(string, int)> ();
+            expected.Add(("",expectedInt));
+            expected.Add(("",expectedInt));
+
+            Assert.AreEqual(expected, this._game.Winners());
+        }
+        [Test]
+        public void TwoWinnersOceanExperience()
+        {
+            this._game.Add(this._ocean);
+
+            this._game.Add(this._traveler);
+            this._game.Add(this._traveler2);
+
+            this._game.StartGame();
+
+            this._game.Move(this._traveler, this._ocean);
+            this._game.Move(this._traveler2, this._ocean);
+
+            int expectedInt = this._convertor.Convert(new Points(1));
+
+            this._game.Move(this._traveler, this._kyoto);
+            this._game.Move(this._traveler2, this._kyoto);
+
+            List<(string, int)> expected = new List<(string, int)> ();
+            expected.Add(("",expectedInt));
+            expected.Add(("",expectedInt));
+
+            Assert.AreEqual(expected, this._game.Winners());
+        }
     }
 }
