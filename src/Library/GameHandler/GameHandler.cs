@@ -177,6 +177,10 @@ namespace Library
         }
         public ReadOnlyCollection<(string, int)> Result()
         {
+            if (!this.IsStarted())
+            {
+                throw new NotStartedGameException();
+            }
             if (!this.IsEnded())
             {
                 throw new NotEndedGameException();
@@ -185,6 +189,40 @@ namespace Library
             foreach (AbstractTraveler traveler in this._last.Travelers)
             {
                 toReturn.Add(traveler.Result());
+            }
+            return toReturn.AsReadOnly();
+        }
+        public ReadOnlyCollection<(string, int)> Winners()
+        {
+            if (!this.IsStarted())
+            {
+                throw new NotStartedGameException();
+            }
+            if (!this.IsEnded())
+            {
+                throw new NotEndedGameException();
+            }
+            List<(string, int)> toReturn = new List<(string, int)>();
+            ReadOnlyCollection<(string, int)> result = this.Result();
+            if (result.Count > 0)
+            {
+                int max = result[0].Item2;
+                foreach ((string, int) playerResult in result)
+                {
+                    if (playerResult.Item2 == max)
+                    {
+                        toReturn.Add(playerResult);
+                    }
+                    else
+                    {
+                        if (playerResult.Item2 > max)
+                        {
+                            max = playerResult.Item2;
+                            toReturn.Clear();
+                            toReturn.Add(playerResult);
+                        }
+                    }
+                }
             }
             return toReturn.AsReadOnly();
         }

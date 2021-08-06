@@ -65,7 +65,13 @@ namespace Library
         /// <summary>
         /// Obtine una lista de parejas con los nombres de los jugadores y sus puntajes al final del juego.
         /// </summary>
-        /// <returns>Retorna la lista vacia si el juego no ha terminado.</returns>
+        /// <returns>Retorna la lista resultado de toda la partida (parejas nombre-puntaje).</returns>
         public ReadOnlyCollection<(string, int)> Result();
+
+        /// <summary>
+        /// Obtiene una lista de personas con el maximo puntaje (los ganadores).
+        /// </summary>
+        /// <returns>Retorna la lista de ganadores (todos aquellos con el puntaje mas alto).</returns>
+        public ReadOnlyCollection<(string, int)> Winners();
     }
 }
